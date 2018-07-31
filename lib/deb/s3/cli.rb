@@ -286,7 +286,7 @@ class Deb::S3::CLI < Thor
                                             false, false)
       manifest.packages.map do |package|
         if options[:long]
-          package.generate
+          package.generate([:codename])
         else
           [package.name, package.full_version, package.architecture].tap do |row|
             row.each_with_index do |col, i|
